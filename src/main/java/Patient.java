@@ -17,5 +17,4 @@ public class Patient extends Person implements Diagnosable
     {
         this.diagnosis = diagnosis;
     }
-
 }
