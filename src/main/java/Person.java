@@ -40,4 +40,9 @@ public class Person
     {
         this.socialSecurityNumber = socialSecurityNumber;
     }
+
+    public String getFullname()
+    {
+        return getFirstName() + getLastName();
+    }
 }
