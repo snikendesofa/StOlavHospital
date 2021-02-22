@@ -42,4 +42,16 @@ public class Department
     {
         return employees;
     }
+
+    public void remove(Person person)
+    {
+        if(person instanceof Employee)
+        {
+            employees.remove(person);
+        }
+        if (person instanceof Patient)
+        {
+            patients.remove(person);
+        }
+    }
 }
