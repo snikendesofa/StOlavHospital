@@ -23,14 +23,27 @@ public class Department
         this.departmentName = departmentName;
     }
 
-    public void addEmployee(Employee employee)
+    public void addEmployee(Employee employee)throws IllegalArgumentException
     {
-        employees.add(employee);
+        if(employee == null)
+        {
+            throw new IllegalArgumentException("This can't be null!");
+        }else
+            {
+                employees.add(employee);
+            }
+
     }
 
-    public void addPatient(Patient patient)
+    public void addPatient(Patient patient) throws IllegalArgumentException
     {
-        patients.add(patient);
+        if(patient == null)
+        {
+            throw new IllegalArgumentException("This can't be null!");
+        }else
+        {
+            patients.add(patient);
+        }
     }
 
     public ArrayList<Patient> getPatients()
@@ -47,11 +60,32 @@ public class Department
     {
         if(person instanceof Employee)
         {
-            employees.remove(person);
+            for (Employee employee : employees)
+            {
+                if (employee.getSocialSecurityNumber().equals(person.getSocialSecurityNumber()))
+                {
+                    employees.remove(person);
+                    return;
+                }
+            }
         }
-        if (person instanceof Patient)
+        else if (person instanceof Patient)
         {
-            patients.remove(person);
+            for (Patient patient : patients)
+            {
+                if (patient.getSocialSecurityNumber().equals(person.getSocialSecurityNumber()))
+                {
+                    patients.remove(person);
+                    return;
+                }
+            }
         }
+        else
+            {
+            RemoveException e1 = new RemoveException();
+            String exception = "" + person;
+            e1.removeException(exception);
+            }
+
     }
 }
