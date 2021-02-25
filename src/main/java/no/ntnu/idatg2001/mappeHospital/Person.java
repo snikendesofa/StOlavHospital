@@ -1,3 +1,5 @@
+package no.ntnu.idatg2001.mappeHospital;
+
 public abstract class Person
 {
     private String firstName;

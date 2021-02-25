@@ -1,10 +1,12 @@
+package no.ntnu.idatg2001.mappeHospital;
+
 import java.util.ArrayList;
 
 public class Hospital
 {
     public String hospitalName;
 
-    ArrayList<Department> departments = new ArrayList<>();
+    private ArrayList<Department> departments = new ArrayList<>();
 
     public Hospital(String hospitalName)
     {

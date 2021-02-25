@@ -1,3 +1,5 @@
+package no.ntnu.idatg2001.mappeHospital;
+
 public class Patient extends Person implements Diagnosable
 {
     String diagnosis;

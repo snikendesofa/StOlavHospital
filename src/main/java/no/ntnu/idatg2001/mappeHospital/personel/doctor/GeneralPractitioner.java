@@ -1,3 +1,7 @@
+package no.ntnu.idatg2001.mappeHospital.personel.doctor;
+
+import no.ntnu.idatg2001.mappeHospital.Patient;
+
 public class GeneralPractitioner extends Doctor
 {
 

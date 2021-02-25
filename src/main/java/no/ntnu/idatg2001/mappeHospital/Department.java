@@ -1,10 +1,13 @@
-import javax.swing.*;
+package no.ntnu.idatg2001.mappeHospital;
+import no.ntnu.idatg2001.mappeHospital.exception.RemoveException;
+import no.ntnu.idatg2001.mappeHospital.personel.Employee;
+
 import java.util.ArrayList;
 
 public class Department
 {
-    ArrayList<Employee> employees = new ArrayList<>();
-    ArrayList<Patient> patients = new ArrayList<>();
+    private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Patient> patients = new ArrayList<>();
 
     public String departmentName;
 
@@ -85,6 +88,7 @@ public class Department
             RemoveException e1 = new RemoveException();
             String exception = "" + person;
             e1.removeException(exception);
+            System.out.println(exception);
             }
 
     }
