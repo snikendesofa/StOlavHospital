@@ -53,4 +53,11 @@ public class DepartmentTest
         assertEquals(2, d1.getEmployees().size());
         System.out.println("Numbers of employees in the list now: " + d1.getEmployees().size());
     }
+
+    @Test
+    public void remove4()
+    {
+        Employee testEmployee = new Employee("Bjarte", "Olufsen", "442211");
+        d1.remove(testEmployee);
+    }
 }

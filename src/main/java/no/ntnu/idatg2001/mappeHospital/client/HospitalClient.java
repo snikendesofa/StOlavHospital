@@ -18,9 +18,9 @@ public class HospitalClient
         client.numberOfEmployees();
         d1.remove(d1.getEmployees().get(0));
         client.numberOfEmployees();
-
         Employee testEmployee = new Employee("Bjarte", "Olufsen", "442211");
         d1.remove(testEmployee);
+
     }
 
     public void init()

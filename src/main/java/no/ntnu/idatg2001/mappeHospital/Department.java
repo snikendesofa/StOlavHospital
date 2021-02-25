@@ -86,9 +86,8 @@ public class Department
         else
             {
             RemoveException e1 = new RemoveException();
-            String exception = "" + person;
+            String exception = "" + person.getFullname() + " " + person.getSocialSecurityNumber();
             e1.removeException(exception);
-            System.out.println(exception);
             }
 
     }
