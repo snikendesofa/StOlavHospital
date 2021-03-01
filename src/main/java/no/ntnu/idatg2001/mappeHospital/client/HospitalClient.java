@@ -20,7 +20,7 @@ public class HospitalClient
         client.numberOfEmployees();
         Employee testEmployee = new Employee("Bjarte", "Olufsen", "442211");
         d1.remove(testEmployee);
-
+        client.numberOfEmployees();
     }
 
     public void init()

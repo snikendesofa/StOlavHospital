@@ -9,6 +9,7 @@ public class Department
     private ArrayList<Employee> employees = new ArrayList<>();
     private ArrayList<Patient> patients = new ArrayList<>();
 
+
     public String departmentName;
 
     public Department(String departmentName)
@@ -61,7 +62,7 @@ public class Department
 
     public void remove(Person person)
     {
-        if(person instanceof Employee)
+        try
         {
             for (Employee employee : employees)
             {
@@ -71,9 +72,7 @@ public class Department
                     return;
                 }
             }
-        }
-        else if (person instanceof Patient)
-        {
+
             for (Patient patient : patients)
             {
                 if (patient.getSocialSecurityNumber().equals(person.getSocialSecurityNumber()))
@@ -82,13 +81,13 @@ public class Department
                     return;
                 }
             }
-        }
-        else
-            {
-            RemoveException e1 = new RemoveException();
-            String exception = "" + person.getFullname() + " " + person.getSocialSecurityNumber();
-            e1.removeException(exception);
-            }
 
+            throw new RemoveException();
+        }
+
+        catch (RemoveException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }

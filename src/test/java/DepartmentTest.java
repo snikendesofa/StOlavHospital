@@ -1,4 +1,5 @@
 import no.ntnu.idatg2001.mappeHospital.Department;
+import no.ntnu.idatg2001.mappeHospital.exception.RemoveException;
 import no.ntnu.idatg2001.mappeHospital.personel.Employee;
 import no.ntnu.idatg2001.mappeHospital.Hospital;
 import no.ntnu.idatg2001.mappeHospital.client.HospitalTestData;
@@ -12,6 +13,7 @@ public class DepartmentTest
     Hospital hospital;
     Department d1;
     Employee e1;
+    Employee testEmployee;
 
     @BeforeEach
     void setUp()
@@ -20,6 +22,8 @@ public class DepartmentTest
         HospitalTestData.fillRegisterWithTestData(hospital);
         d1 = hospital.getDepartments().get(0);
         e1 = d1.getEmployees().get(0);
+        testEmployee = new Employee("Bjarte", "Olufsen", "442211");
+        d1.remove(testEmployee);
     }
 
     @Test
@@ -57,7 +61,6 @@ public class DepartmentTest
     @Test
     public void remove4()
     {
-        Employee testEmployee = new Employee("Bjarte", "Olufsen", "442211");
-        d1.remove(testEmployee);
+       // System.out.println("Number of exceptions: " + d1.ex2.getExceptions().size());
     }
 }
