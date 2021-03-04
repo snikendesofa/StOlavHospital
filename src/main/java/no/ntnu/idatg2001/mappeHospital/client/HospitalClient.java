@@ -3,6 +3,7 @@ package no.ntnu.idatg2001.mappeHospital.client;
 import no.ntnu.idatg2001.mappeHospital.Department;
 import no.ntnu.idatg2001.mappeHospital.Hospital;
 import no.ntnu.idatg2001.mappeHospital.personel.Employee;
+import no.ntnu.idatg2001.mappeHospital.personel.Nurse;
 
 public class HospitalClient
 {

@@ -8,13 +8,20 @@ import no.ntnu.idatg2001.mappeHospital.personel.doctor.GeneralPractitioner;
 import no.ntnu.idatg2001.mappeHospital.personel.Nurse;
 import no.ntnu.idatg2001.mappeHospital.personel.doctor.Surgeon;
 
+/**
+ * A simple class used to create a hospital and fill it with departments and persons.
+ */
 public final class HospitalTestData
 {
+    /**
+     * This constructor is not used because we are not going to create any objects with this class.
+     */
     private HospitalTestData()
     {
         // not called
     }
     /**
+     * This method creates departments and creates lots of Person objects that we can work and test with.
      * @param hospital
      */
     public static void fillRegisterWithTestData(final Hospital hospital)

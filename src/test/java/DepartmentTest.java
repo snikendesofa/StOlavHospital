@@ -1,4 +1,5 @@
 import no.ntnu.idatg2001.mappeHospital.Department;
+import no.ntnu.idatg2001.mappeHospital.Patient;
 import no.ntnu.idatg2001.mappeHospital.exception.RemoveException;
 import no.ntnu.idatg2001.mappeHospital.personel.Employee;
 import no.ntnu.idatg2001.mappeHospital.Hospital;
@@ -10,11 +11,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DepartmentTest
 {
 
+    /**
+     * This is the different objects we need to do our tests.
+     */
     Hospital hospital;
     Department d1;
     Employee e1;
+    Patient p1;
     Employee testEmployee;
+    Patient testPatient;
 
+    /**
+     * This setUp method does everything we need for each test to be run properly.
+     */
     @BeforeEach
     void setUp()
     {
@@ -22,12 +31,16 @@ public class DepartmentTest
         HospitalTestData.fillRegisterWithTestData(hospital);
         d1 = hospital.getDepartments().get(0);
         e1 = d1.getEmployees().get(0);
+        p1 = d1.getPatients().get(0);
         testEmployee = new Employee("Bjarte", "Olufsen", "442211");
-        d1.remove(testEmployee);
+        testPatient = new Patient("Ole", "Fredriksen", "88442");
     }
 
+    /**
+     * This test simply removes an employee from the Employee List and checks that the Employee actually got removed.
+     */
     @Test
-    public void remove()
+    void removeEmployeeTest()
     {
         System.out.println("Test 1:");
         System.out.println("Numbers of employees in the list: " + d1.getEmployees().size());
@@ -37,30 +50,64 @@ public class DepartmentTest
         System.out.println();
     }
 
+    /**
+     * This test tries to remove an employee that does not exist in the employee list. It is expected to not work.
+     */
     @Test
-    public void remove2()
+    void removeEmployeeTest2()
     {
         System.out.println("Test 2:");
         System.out.println("Numbers of employees in the list: " + d1.getEmployees().size());
-        //d1.remove(e4);
-        assertEquals(2, d1.getEmployees().size());
+        d1.remove(testEmployee);
+        assertEquals(7, d1.getEmployees().size());
         System.out.println("Numbers of employees in the list now: " + d1.getEmployees().size());
         System.out.println();
     }
 
+    /**
+     * This last test removes a patient from the patient list and is expected to work.
+     */
     @Test
-    public void remove3()
+    void removePatientTest()
     {
         System.out.println("Test 3:");
+        System.out.println("Numbers of patients in the list: " + d1.getPatients().size());
+        d1.remove(p1);
+        assertEquals(1, d1.getPatients().size());
+        System.out.println("Numbers of patients in the list now: " + d1.getPatients().size());
+        System.out.println();
+    }
+
+    /**
+     * This test tries to add a patient to the patient list and is expected to be successful.
+     */
+    @Test
+    void addPatientTest()
+    {
+        System.out.println("Test 4:");
+        System.out.println("Numbers of patients in the list: " + d1.getPatients().size());
+        d1.addPatient(testPatient);
+        assertEquals(3, d1.getPatients().size());
+        System.out.println("Numbers of patients in the list now: " + d1.getPatients().size());
+    }
+
+    /**
+     * This test tries to add a employee to the patient list and is expected to be successful.
+     */
+    @Test
+    void addEmployeeTest()
+    {
+        System.out.println("Test 5:");
         System.out.println("Numbers of employees in the list: " + d1.getEmployees().size());
-        //d1.remove(e3);
-        assertEquals(2, d1.getEmployees().size());
-        System.out.println("Numbers of employees in the list now: " + d1.getEmployees().size());
+        d1.addEmployee(testEmployee);
+        assertEquals(8, d1.getEmployees().size());
+        System.out.println("Numbers of patients in the list now: " + d1.getEmployees().size());
     }
 
     @Test
-    public void remove4()
+    void testRemoveThrow()
     {
-       // System.out.println("Number of exceptions: " + d1.ex2.getExceptions().size());
+        Employee test2 = new Employee("Huk", "Nus", "35453");
+        assertThrows(RemoveException.class, () -> d1.remove(test2));
     }
 }
