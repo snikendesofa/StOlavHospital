@@ -87,4 +87,9 @@ public abstract class Person
     {
         return getFirstName() + " " + getLastName();
     }
+
+    public String toString()
+    {
+        return getFullName() + " " + getSocialSecurityNumber();
+    }
 }

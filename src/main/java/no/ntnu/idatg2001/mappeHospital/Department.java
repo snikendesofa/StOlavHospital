@@ -116,10 +116,8 @@ public class Department
      * If the object is not in any list it will return an Exception message from the RemoveException class.
      * @param person is the object you wish to remove.
      */
-    public void remove(Person person)
+    public void remove(Person person) throws RemoveException
     {
-        try
-        {
             for (Employee employee : employees)
             {
                 if (employee.getSocialSecurityNumber().equals(person.getSocialSecurityNumber()))
@@ -139,11 +137,5 @@ public class Department
             }
 
             throw new RemoveException();
-        }
-
-        catch (RemoveException e)
-        {
-            System.out.println(e.getMessage());
-        }
     }
 }

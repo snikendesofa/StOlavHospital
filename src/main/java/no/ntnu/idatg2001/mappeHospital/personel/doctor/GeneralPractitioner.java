@@ -30,7 +30,7 @@ public class GeneralPractitioner extends Doctor
         {
             if(patient == null || diagnosis.isEmpty())
             {
-                throw new IllegalArgumentException("This can't be null!");
+                throw new IllegalArgumentException("You need to choose a patient and enter a diagnosis!");
             }else
             {
                 patient.setDiagnosis(diagnosis);

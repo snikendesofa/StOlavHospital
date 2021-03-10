@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * The RemoveException class with the message we want if the excetion is thrown.
  */
-public class RemoveException extends Exception
+public class RemoveException extends Throwable
 {
     /**
      * I have no idea what this is but the project said it is supposed to be here.
@@ -27,6 +27,6 @@ public class RemoveException extends Exception
      */
     public RemoveException(String message)
     {
-        super.getMessage();
+        super(message);
     }
 }

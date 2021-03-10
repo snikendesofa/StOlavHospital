@@ -4,8 +4,12 @@ import no.ntnu.idatg2001.mappeHospital.exception.RemoveException;
 import no.ntnu.idatg2001.mappeHospital.personel.Employee;
 import no.ntnu.idatg2001.mappeHospital.Hospital;
 import no.ntnu.idatg2001.mappeHospital.client.HospitalTestData;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.security.spec.ECField;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DepartmentTest
@@ -40,8 +44,7 @@ public class DepartmentTest
      * This test simply removes an employee from the Employee List and checks that the Employee actually got removed.
      */
     @Test
-    void removeEmployeeTest()
-    {
+    void removeEmployeeTest() throws RemoveException {
         System.out.println("Test 1:");
         System.out.println("Numbers of employees in the list: " + d1.getEmployees().size());
         d1.remove(e1);
@@ -51,25 +54,10 @@ public class DepartmentTest
     }
 
     /**
-     * This test tries to remove an employee that does not exist in the employee list. It is expected to not work.
-     */
-    @Test
-    void removeEmployeeTest2()
-    {
-        System.out.println("Test 2:");
-        System.out.println("Numbers of employees in the list: " + d1.getEmployees().size());
-        d1.remove(testEmployee);
-        assertEquals(7, d1.getEmployees().size());
-        System.out.println("Numbers of employees in the list now: " + d1.getEmployees().size());
-        System.out.println();
-    }
-
-    /**
      * This last test removes a patient from the patient list and is expected to work.
      */
     @Test
-    void removePatientTest()
-    {
+    void removePatientTest() throws RemoveException {
         System.out.println("Test 3:");
         System.out.println("Numbers of patients in the list: " + d1.getPatients().size());
         d1.remove(p1);
@@ -107,7 +95,6 @@ public class DepartmentTest
     @Test
     void testRemoveThrow()
     {
-        Employee test2 = new Employee("Huk", "Nus", "35453");
-        assertThrows(RemoveException.class, () -> d1.remove(test2));
+        Assertions.assertThrows(RemoveException.class, () -> {d1.remove(testEmployee);});
     }
 }
