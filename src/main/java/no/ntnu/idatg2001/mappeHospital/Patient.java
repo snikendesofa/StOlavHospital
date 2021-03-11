@@ -9,7 +9,7 @@ public class Patient extends Person implements Diagnosable
      * The string diagnosis containing the diagnosis the a patient.
      */
     private String diagnosis;
-
+git stat
     /**
      * The patient constructor.
      * @param firstName String with the first name of the patient.
