@@ -88,6 +88,10 @@ public abstract class Person
         return getFirstName() + " " + getLastName();
     }
 
+    /**
+     * This simple method returns a combination of the fullname and the social security number, which can then be printed.
+     * @return a string with full name and socialsecurity number.
+     */
     public String toString()
     {
         return getFullName() + " " + getSocialSecurityNumber();

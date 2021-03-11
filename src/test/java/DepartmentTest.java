@@ -8,10 +8,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.security.spec.ECField;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This test class is made to test all the methods.
+ */
 public class DepartmentTest
 {
 
@@ -95,6 +96,6 @@ public class DepartmentTest
     @Test
     void testRemoveThrow()
     {
-        Assertions.assertThrows(RemoveException.class, () -> {d1.remove(testEmployee);});
+        Assertions.assertThrows(RemoveException.class, () -> d1.remove(testEmployee));
     }
 }
