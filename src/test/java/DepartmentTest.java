@@ -93,6 +93,9 @@ public class DepartmentTest
         System.out.println("Numbers of patients in the list now: " + d1.getEmployees().size());
     }
 
+    /**
+     * This test check that the RemoveException actually gets thrown from the remove method.
+     */
     @Test
     void testRemoveThrow()
     {
